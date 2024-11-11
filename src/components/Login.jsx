@@ -1,9 +1,10 @@
 import React from "react";
 import { Input , Button } from "antd";
+import "./css/Login.css"
 
 const Login = () => {
     return (
-      <div>
+      <div className="login-page">
         <Input placeholder="Email Address" type="email"/>
         <Input placeholder="Enter Password" type="password"/>
         <Button type="primary">Login now!</Button>
