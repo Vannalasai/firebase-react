@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { Input , Button } from "antd";
 import "./css/Login.css"
 
-import { auth } from "../firebase"
+import { auth } from '/src/firebase.js';
+
 import { createUserWithEmailAndPassword } from "firebase/auth";
 
 const Register = () => {
@@ -13,7 +14,7 @@ const Register = () => {
   const [lastName, setLastName] = useState()
 
   async function handleClick() {
-    createUserWithEmailAndPassword( auth, firstName, lastName, email, password).then((userCredential) => {
+    createUserWithEmailAndPassword( auth, email, password).then((userCredential) => {
       console.log(userCredential)
     })
   }
