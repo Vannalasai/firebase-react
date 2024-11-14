@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Input , Button } from "antd";
 import "./css/Login.css"
+import { useNavigate } from "react-router-dom";
 
 import { auth } from "../firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
@@ -9,10 +10,13 @@ const Login = () => {
 
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const navigate = useNavigate();
 
   async function handleClick() {
     signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
-      console.log(userCredential.user)
+      navigate('/')
+    }).catch(err => {
+      console.log(err)
     })
   }
 

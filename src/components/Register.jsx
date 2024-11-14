@@ -16,6 +16,8 @@ const Register = () => {
   async function handleClick() {
     createUserWithEmailAndPassword( auth, email, password).then((userCredential) => {
       console.log(userCredential)
+    }).catch(err => {
+      console.log(err)
     })
   }
 
