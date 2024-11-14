@@ -1,17 +1,15 @@
 import React, { useEffect } from "react";
 
 import { db } from "../firebase";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, doc, getDoc } from "firebase/firestore";
 
 const Home = () => {
 
   useEffect(() => {
     const getAllUsers = async () => {
-      const collectionReference = collection(db, "users")
-      const userDocuments = await getDocs(collectionReference)
-      userDocuments.forEach((user) => {
-        console.log(user.data())
-      })
+      const collectionReference = doc(db, "users", "sai")
+      const userDocuments = await getDoc(collectionReference)
+      console.log(userDocuments.data())
     }
 
     getAllUsers()
