@@ -254,13 +254,13 @@ const Home = () => {
     const q = query(collectionReference, where('price', '<', 500))
     getDocs(q).then(response => {
         response.forEach(price => {
-            console.log(price.data().title, price.data().price)
+            console.log(price.data().title)
         })
     })
     }
 
     firebaseFunction()
-  }, [])
+  })
 
   return(
     <div>Home</div>
