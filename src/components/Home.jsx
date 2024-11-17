@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 
 import { db } from "../firebase";
-import { collection, getDocs, doc, getDoc, addDoc } from "firebase/firestore";
+import { collection, getDocs, doc, getDoc, addDoc, query, where } from "firebase/firestore";
 
 const Home = () => {
 
@@ -251,16 +251,16 @@ const Home = () => {
     ]
 
     const collectionReference = collection(db, "products")
-    
-    products.forEach(prod => {
-      addDoc(collectionReference, prod).then(response => {
-        console.log('data added')
-      })
+    const q = query(collectionReference, where('price', '<', 500))
+    getDocs(q).then(response => {
+        response.forEach(price => {
+            console.log(price.data().title, price.data().price)
+        })
     })
     }
 
     firebaseFunction()
-  })
+  }, [])
 
   return(
     <div>Home</div>
