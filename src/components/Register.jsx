@@ -5,6 +5,7 @@ import "./css/Login.css"
 import { auth } from '/src/firebase.js';
 
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
 
@@ -12,9 +13,11 @@ const Register = () => {
   const [password, setPassword] = useState();
   const [firstName, setFirstName] = useState()
   const [lastName, setLastName] = useState()
+  const navigate = useNavigate();
 
   async function handleClick() {
     createUserWithEmailAndPassword( auth, email, password).then((userCredential) => {
+      navigate('/login')
       console.log(userCredential)
     }).catch(err => {
       console.log(err)
