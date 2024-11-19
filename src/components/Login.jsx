@@ -14,7 +14,7 @@ const Login = () => {
 
   async function handleClick() {
     signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
-      navigate('/')
+      // navigate('/')
     }).catch(err => {
       console.log(err)
     })

@@ -12,7 +12,7 @@ const Home = () => {
 
     function handleLogout() {
         signOut(auth).then(response => {
-            navigate('/login')
+            // navigate('/login')
             console.log(auth.currentUser)
         })
     }
